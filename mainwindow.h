@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <QShortcut>
 #include <QString>
+#include <rules.h>
+#include <player.h>
+#include <exception>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,19 +21,22 @@ public:
     ~MainWindow();
 
 private slots:
-    void slotShortrcutEnter();
-    void on_input_user_number_button_clicked();
+    void on_input_chosen_number_button_clicked();
+    void game_rules();
 
 private:
     Ui::MainWindow *ui;
 
-    QShortcut *keyEnter;
+    QString input_number;
+    Player* player;
+    Player* pc;
 
-
-    QString user_number;
-    std::string pc_number;
-    std::string number_for_check;
-
-    bool is_number(QString);
+    QString get_input();
+    void clear_input();
+    void block_input();
+    void show_number_to_user();
+    void input_chosen_number_button_close();
+    void repeat_input();
+    bool is_4_digit_number(QString);
 };
 #endif // MAINWINDOW_H

@@ -1,14 +1,14 @@
 #include "rules.h"
 #include "ui_rules.h"
 
-rules::rules(QWidget *parent) :
+Rules::Rules(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::rules)
+    ui(new Ui::Rules)
 {
     ui->setupUi(this);
 }
 
-rules::~rules()
+Rules::~Rules()
 {
     delete ui;
 }

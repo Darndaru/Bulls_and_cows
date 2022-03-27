@@ -4,19 +4,19 @@
 #include <QDialog>
 
 namespace Ui {
-class rules;
+class Rules;
 }
 
-class rules : public QDialog
+class Rules : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit rules(QWidget *parent = nullptr);
-    ~rules();
+    explicit Rules(QWidget *parent = nullptr);
+    ~Rules();
 
 private:
-    Ui::rules *ui;
+    Ui::Rules *ui;
 };
 
 #endif // RULES_H
