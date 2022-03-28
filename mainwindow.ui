@@ -45,8 +45,11 @@
      </rect>
     </property>
     <layout class="QVBoxLayout" name="pc_player">
+     <property name="spacing">
+      <number>6</number>
+     </property>
      <item>
-      <widget class="QLCDNumber" name="lcdNumber_2"/>
+      <widget class="QLCDNumber" name="pc_result"/>
      </item>
     </layout>
    </widget>
@@ -126,35 +129,30 @@
       <height>41</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="user_player_2"/>
-   </widget>
-   <widget class="QLCDNumber" name="player_result">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>70</y>
-      <width>181</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="tabletTracking">
-     <bool>false</bool>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="lineWidth">
-     <number>1</number>
-    </property>
-    <property name="smallDecimalPoint">
-     <bool>false</bool>
-    </property>
-    <property name="segmentStyle">
-     <enum>QLCDNumber::Filled</enum>
-    </property>
+    <layout class="QVBoxLayout" name="user_player">
+     <item>
+      <widget class="QLCDNumber" name="player_result">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="tabletTracking">
+        <bool>false</bool>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="lineWidth">
+        <number>1</number>
+       </property>
+       <property name="smallDecimalPoint">
+        <bool>false</bool>
+       </property>
+       <property name="segmentStyle">
+        <enum>QLCDNumber::Filled</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
