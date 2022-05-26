@@ -2,25 +2,33 @@
 #define PLAYER_H
 
 #include <QString>
+#include <QVector>
 
-class Player {
-
+class Player
+{
 private:
-    QString number;
-    int number_i;
-    QString checking_number;
-    int checking_number_i;
+    const int num_of_digits = 4;
+    QString hidden_number;
+    QString opponent_number;
+    QString guessed_number;
+    int bulls_for_guessed_number;
+    int cows_for_guessed_number;
+
+    QVector <QChar> digits_of_guessed_number;
+
+    void set_digits_of_guessed_number();
+    bool same_symbols_for_indexes(int, int);
 
 public:
-    Player();
+    Player(QString);
 
-    void set_number(QString number);
-    QString get_number();
+    void set_hidden_number(QString);
+    QString get_hidden_number();
+    void set_guessed_number(QString);
+    QString get_guessed_number();
 
-    int get_bulls_for(QString checking_number);
-    int get_cows_for(QString checking_number);
-    bool check_cow();
-    bool checked_as_bull();
+    int get_bulls();
+    int get_cows();
 };
 
 #endif // PLAYER_H

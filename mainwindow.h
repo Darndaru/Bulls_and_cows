@@ -12,6 +12,20 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+struct Number {
+    QString number;
+
+    bool is_4_digit() {
+        if (number.length() != 4)
+            return false;
+
+        for (QChar symbol : number)
+            if (!symbol.isDigit())
+                return false;
+        return true;
+    }
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -27,16 +41,17 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    QString input_number;
+    Number input;
     Player* player;
     Player* pc;
 
-    QString get_input();
+    void get_input();
     void clear_input();
     void block_input();
     void show_number_to_user();
     void input_chosen_number_button_close();
     void repeat_input();
-    bool is_4_digit_number(QString);
+
+    void show_table_heads();
 };
 #endif // MAINWINDOW_H

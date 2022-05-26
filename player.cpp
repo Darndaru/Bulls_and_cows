@@ -1,53 +1,57 @@
 #include "player.h"
 
-Player::Player() {
-
+Player::Player(QString number) {
+    hidden_number = number;
 }
 
-void Player::set_number(QString number) {
-    this->number = number;
+void Player::set_hidden_number(QString number) {
+    hidden_number = number;
 }
 
-QString Player::get_number() {
-    return number;
+QString Player::get_hidden_number() {
+    return hidden_number;
 }
 
-int Player::get_bulls_for(QString number) {
-    checking_number = number;
-    int num_of_bulls = 0;
-
-    for (int i = 0; i < 4; i++)
-        if (number[i] == checking_number[i])
-            num_of_bulls++;
-
-    return num_of_bulls;
+void Player::set_guessed_number(QString number) {
+    guessed_number = number;
+    set_digits_of_guessed_number();
 }
 
-int Player::get_cows_for(QString number) {
-    checking_number = number;
-    int num_of_cows = 0;
-
-    for (int checking_number_i = 0;
-             checking_number_i < 4;
-             checking_number_i++)
-        if (check_cow())
-            num_of_cows++;
-
-    return num_of_cows;
+void Player::set_digits_of_guessed_number() {
+    digits_of_guessed_number.resize(0);
+    for (auto symbol : guessed_number)
+        digits_of_guessed_number.push_back(symbol);
 }
 
-bool Player::check_cow() {
-    for (int number_i = 0; number_i < 4; number_i++)
-        if (!checked_as_bull())
-            if (number[number_i] ==
-                    checking_number[checking_number_i])
-                return true;
-    return false;
-
+QString Player::get_guessed_number() {
+    return guessed_number;
 }
 
-bool Player::checked_as_bull() {
-    if (number_i == checking_number_i)
+int Player::get_bulls() {
+    int counter = 0;
+    for (int i = 0; i < num_of_digits; i++)
+        if (same_symbols_for_indexes(i, i))
+            counter++;
+    return counter;
+}
+
+int Player::get_cows() {
+    int counter = 0;
+    for (auto real_symbol : opponent_number)
+        for (auto guessed_symbol : digits_of_guessed_number)
+            if (real_symbol == guessed_symbol) {
+                counter++;
+                break;
+            }
+    counter -= bulls_for_guessed_number;
+    return counter;
+}
+
+
+bool  Player::same_symbols_for_indexes(int real_num_ind,
+                                       int guessed_num_ind) {
+    if (opponent_number[real_num_ind] ==
+            guessed_number[guessed_num_ind])
         return true;
     return false;
 }
