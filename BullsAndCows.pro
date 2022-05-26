@@ -10,21 +10,22 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
+    mainmenu.cpp \
     mainwindow.cpp \
     player.cpp \
     rules.cpp
 
 HEADERS += \
+    mainmenu.h \
     mainwindow.h \
     player.h \
     rules.h
 
 FORMS += \
+    mainmenu.ui \
     mainwindow.ui \
     rules.ui
 
-TRANSLATIONS += \
-    BullsAndCows_ru_RU.ts
 CONFIG += lrelease
 CONFIG += embed_translations
 
