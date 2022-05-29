@@ -9,22 +9,28 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    clientwindow.cpp \
     main.cpp \
     mainmenu.cpp \
     mainwindow.cpp \
     player.cpp \
-    rules.cpp
+    rules.cpp \
+    serverwindow.cpp
 
 HEADERS += \
+    clientwindow.h \
     mainmenu.h \
     mainwindow.h \
     player.h \
-    rules.h
+    rules.h \
+    serverwindow.h
 
 FORMS += \
+    clientwindow.ui \
     mainmenu.ui \
     mainwindow.ui \
-    rules.ui
+    rules.ui \
+    serverwindow.ui
 
 CONFIG += lrelease
 CONFIG += embed_translations

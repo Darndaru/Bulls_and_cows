@@ -3,7 +3,7 @@
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="enabled">
-   <bool>true</bool>
+   <bool>false</bool>
   </property>
   <property name="geometry">
    <rect>
@@ -22,7 +22,6 @@
   </property>
   <property name="font">
    <font>
-    <family>Consolas</family>
     <pointsize>16</pointsize>
    </font>
   </property>
@@ -47,7 +46,6 @@
     </property>
     <property name="font">
      <font>
-      <family>Consolas</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -72,7 +70,6 @@
     </property>
     <property name="font">
      <font>
-      <family>Consolas</family>
       <pointsize>12</pointsize>
      </font>
     </property>
@@ -91,7 +88,7 @@
    </widget>
    <widget class="QLabel" name="pointing_for_user">
     <property name="enabled">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="geometry">
      <rect>
@@ -131,7 +128,7 @@
        <item>
         <widget class="QLabel" name="label_number_0">
          <property name="enabled">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
          <property name="font">
           <font>
@@ -167,7 +164,6 @@
         <widget class="QLabel" name="label_cows_0">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>16</pointsize>
           </font>
          </property>
@@ -187,7 +183,6 @@
         <widget class="QLabel" name="u_number_0">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -203,7 +198,6 @@
         <widget class="QLabel" name="u_bulls_0">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -219,7 +213,6 @@
         <widget class="QLabel" name="u_cows_0">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -239,7 +232,6 @@
         <widget class="QLabel" name="u_number_1">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -255,7 +247,6 @@
         <widget class="QLabel" name="u_bulls_1">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -271,7 +262,6 @@
         <widget class="QLabel" name="u_cows_1">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -291,7 +281,6 @@
         <widget class="QLabel" name="u_number_2">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -307,7 +296,6 @@
         <widget class="QLabel" name="u_bulls_2">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -323,7 +311,6 @@
         <widget class="QLabel" name="u_cows_2">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -343,7 +330,6 @@
         <widget class="QLabel" name="u_number_3">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -359,7 +345,6 @@
         <widget class="QLabel" name="u_bulls_3">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -375,7 +360,6 @@
         <widget class="QLabel" name="u_cows_3">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -395,7 +379,6 @@
         <widget class="QLabel" name="u_number_4">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -411,7 +394,6 @@
         <widget class="QLabel" name="u_bulls_4">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -427,7 +409,6 @@
         <widget class="QLabel" name="u_cows_4">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -447,7 +428,6 @@
         <widget class="QLabel" name="u_number_5">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -463,7 +443,6 @@
         <widget class="QLabel" name="u_bulls_5">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -479,7 +458,6 @@
         <widget class="QLabel" name="u_cows_5">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -499,7 +477,6 @@
         <widget class="QLabel" name="u_number_6">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -515,7 +492,6 @@
         <widget class="QLabel" name="u_bulls_6">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -531,7 +507,6 @@
         <widget class="QLabel" name="u_cows_6">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -551,7 +526,6 @@
         <widget class="QLabel" name="u_number_7">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -567,7 +541,6 @@
         <widget class="QLabel" name="u_bulls_7">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -583,7 +556,6 @@
         <widget class="QLabel" name="u_cows_7">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -603,7 +575,6 @@
         <widget class="QLabel" name="u_number_8">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -619,7 +590,6 @@
         <widget class="QLabel" name="u_bulls_8">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -635,7 +605,6 @@
         <widget class="QLabel" name="u_cows_8">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -662,7 +631,6 @@
     </property>
     <property name="font">
      <font>
-      <family>Consolas</family>
       <pointsize>20</pointsize>
      </font>
     </property>
@@ -692,7 +660,6 @@
         <widget class="QLabel" name="label_number_1">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>16</pointsize>
           </font>
          </property>
@@ -708,7 +675,6 @@
         <widget class="QLabel" name="label_bulls_1">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>16</pointsize>
           </font>
          </property>
@@ -724,7 +690,6 @@
         <widget class="QLabel" name="label_cows_1">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>16</pointsize>
           </font>
          </property>
@@ -744,7 +709,6 @@
         <widget class="QLabel" name="o_number_0">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -760,7 +724,6 @@
         <widget class="QLabel" name="o_bulls_0">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -776,7 +739,6 @@
         <widget class="QLabel" name="o_cows_0">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -796,7 +758,6 @@
         <widget class="QLabel" name="o_number_1">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -812,7 +773,6 @@
         <widget class="QLabel" name="o_bulls_1">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -828,7 +788,6 @@
         <widget class="QLabel" name="o_cows_1">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -848,7 +807,6 @@
         <widget class="QLabel" name="o_number_2">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -864,7 +822,6 @@
         <widget class="QLabel" name="o_bulls_2">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -880,7 +837,6 @@
         <widget class="QLabel" name="o_cows_2">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -900,7 +856,6 @@
         <widget class="QLabel" name="o_number_3">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -916,7 +871,6 @@
         <widget class="QLabel" name="o_bulls_3">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -932,7 +886,6 @@
         <widget class="QLabel" name="o_cows_3">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -952,7 +905,6 @@
         <widget class="QLabel" name="o_number_4">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -968,7 +920,6 @@
         <widget class="QLabel" name="o_bulls_4">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -984,7 +935,6 @@
         <widget class="QLabel" name="o_cows_4">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -1004,7 +954,6 @@
         <widget class="QLabel" name="o_number_5">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -1020,7 +969,6 @@
         <widget class="QLabel" name="o_bulls_5">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -1036,7 +984,6 @@
         <widget class="QLabel" name="o_cows_5">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -1056,7 +1003,6 @@
         <widget class="QLabel" name="o_number_6">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -1072,7 +1018,6 @@
         <widget class="QLabel" name="o_bulls_6">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -1088,7 +1033,6 @@
         <widget class="QLabel" name="o_cows_6">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -1108,7 +1052,6 @@
         <widget class="QLabel" name="o_number_7">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -1124,7 +1067,6 @@
         <widget class="QLabel" name="o_bulls_7">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -1140,7 +1082,6 @@
         <widget class="QLabel" name="o_cows_7">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -1160,7 +1101,6 @@
         <widget class="QLabel" name="o_number_8">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -1176,7 +1116,6 @@
         <widget class="QLabel" name="o_bulls_8">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -1192,7 +1131,6 @@
         <widget class="QLabel" name="o_cows_8">
          <property name="font">
           <font>
-           <family>Consolas</family>
            <pointsize>20</pointsize>
           </font>
          </property>
@@ -1220,7 +1158,6 @@
    </property>
    <property name="font">
     <font>
-     <family>Consolas</family>
      <pointsize>9</pointsize>
     </font>
    </property>

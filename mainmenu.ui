@@ -12,7 +12,7 @@
   </property>
   <property name="font">
    <font>
-    <family>Consolas</family>
+    <pointsize>12</pointsize>
    </font>
   </property>
   <property name="windowTitle">
@@ -29,7 +29,6 @@
    </property>
    <property name="font">
     <font>
-     <family>Consolas</family>
      <pointsize>20</pointsize>
     </font>
    </property>
@@ -51,16 +50,16 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="network">
+     <widget class="QPushButton" name="server_button">
       <property name="text">
-       <string>Игра по сети</string>
+       <string>Создать игру</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="client_button">
       <property name="text">
-       <string>Игра с компьютером</string>
+       <string>Подключиться к игре</string>
       </property>
      </widget>
     </item>
