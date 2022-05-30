@@ -1,7 +1,7 @@
 #include "mainmenu.h"
 #include "ui_mainmenu.h"
 
-MainMenu::MainMenu(QWidget *parent) :
+MainMenu::MainMenu(MainWindow *parent) :
     QDialog(parent),
     ui(new Ui::MainMenu)
 {
@@ -12,13 +12,25 @@ MainMenu::MainMenu(QWidget *parent) :
     connect(cw, &ClientWindow::menu, this, &MainMenu::show);
 }
 
-MainMenu::~MainMenu()
-{
+MainMenu::~MainMenu() {
     delete ui;
+    delete w;
+    delete sw;
+    delete cw;
 }
+
 
 void MainMenu::on_server_button_clicked() {
     sw->show();
     this->close();
 }
 
+void MainMenu::on_client_button_clicked() {
+    cw->show();
+    this->close();
+}
+
+void MainMenu::on_quit_clicked() {
+    w->close();
+    this->close();
+}
