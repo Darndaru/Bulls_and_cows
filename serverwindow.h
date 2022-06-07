@@ -1,18 +1,19 @@
 #ifndef SERVERWINDOW_H
 #define SERVERWINDOW_H
 
-#include <QWidget>
+#include <QDialog>
+#include <mainwindow.h>
 
 namespace Ui {
 class ServerWindow;
 }
 
-class ServerWindow : public QWidget
+class ServerWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit ServerWindow(QWidget *parent = nullptr);
+    explicit ServerWindow(MainWindow *parent = nullptr);
     ~ServerWindow();
 
 signals:
@@ -20,6 +21,7 @@ signals:
 
 private:
     Ui::ServerWindow *ui;
+    MainWindow *w;
 };
 
 #endif // SERVERWINDOW_H

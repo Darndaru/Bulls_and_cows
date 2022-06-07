@@ -38,11 +38,10 @@ void MyServer::slotReadClient() {
         if (clientSocket->bytesAvailable() < nextBlockSize)
             break;
 
-        QTime time;
         QString str;
         in >> str;
 
-        QString strMessage = time.toString() + " " + str;
+        QString strMessage = str;
         data.append(strMessage);
 
         nextBlockSize = 0;

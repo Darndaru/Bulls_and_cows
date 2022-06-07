@@ -6,13 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>500</width>
     <height>200</height>
    </rect>
   </property>
   <property name="font">
    <font>
-    <family>Consolas</family>
     <pointsize>14</pointsize>
    </font>
   </property>
@@ -24,43 +23,30 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>401</width>
+     <width>501</width>
      <height>201</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="label_ip">
       <property name="text">
        <string>IP-адрес сервера:</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit"/>
+     <widget class="QLineEdit" name="ip_address"/>
     </item>
     <item>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="label_port">
       <property name="text">
        <string>Номер порта:</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_2"/>
+     <widget class="QLineEdit" name="port_number"/>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
@@ -78,7 +64,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="play_button">
         <property name="text">
          <string>Играть!</string>
         </property>
@@ -98,6 +84,13 @@
        </spacer>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_result">
+      <property name="text">
+       <string>Соединение не установлено. Попробуйте еще раз.</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

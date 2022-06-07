@@ -2,6 +2,7 @@
 
 MyClient::MyClient(const QString &host, int port) {
     nextBlockSize = 0;
+    connected = false;
     tcpSocket = new QTcpSocket(this);
 
     tcpSocket->connectToHost(host, port);
@@ -48,8 +49,10 @@ void MyClient::sendToServer(QString data) {
 }
 
 void MyClient::slotConnected() {
-
+    connected = true;
 }
 
-
+bool MyClient::isConnected() {
+    return connected;
+}
 

@@ -6,28 +6,30 @@ MainMenu::MainMenu(MainWindow *parent) :
     ui(new Ui::MainMenu)
 {
     ui->setupUi(this);
-    sw = new ServerWindow();
-    cw = new ClientWindow();
-    connect(sw, &ServerWindow::menu, this, &MainMenu::show);
-    connect(cw, &ClientWindow::menu, this, &MainMenu::show);
+    w = parent;
+    this->setWindowTitle("Меню");
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
 MainMenu::~MainMenu() {
     delete ui;
-    delete w;
-    delete sw;
-    delete cw;
 }
 
 
 void MainMenu::on_server_button_clicked() {
-    sw->show();
+    ServerWindow *sw = new ServerWindow(w);
+    connect(sw, &ServerWindow::menu, this, &MainMenu::show);
+    sw->setWindowModality(Qt::ApplicationModal);
     this->close();
+    sw->show();
 }
 
 void MainMenu::on_client_button_clicked() {
-    cw->show();
+    ClientWindow *cw = new ClientWindow(w);
+    connect(cw, &ClientWindow::menu, this, &MainMenu::show);
+    cw->setWindowModality(Qt::ApplicationModal);
     this->close();
+    cw->show();
 }
 
 void MainMenu::on_quit_clicked() {

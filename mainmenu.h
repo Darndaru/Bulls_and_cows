@@ -27,8 +27,6 @@ private:
     Ui::MainMenu *ui;
 
     MainWindow *w;
-    ServerWindow *sw;
-    ClientWindow *cw;
 };
 
 #endif // MAINMENU_H

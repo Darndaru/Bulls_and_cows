@@ -5,6 +5,8 @@
 #include <QShortcut>
 #include <QString>
 #include <rules.h>
+#include <myserver.h>
+#include <myclient.h>
 #include <player.h>
 #include <exception>
 
@@ -33,6 +35,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    MyServer *server;
+    MyClient *client;
 
 private slots:
     void on_input_chosen_number_button_clicked();
@@ -40,6 +44,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
 
     Number input;
     Player* player;
