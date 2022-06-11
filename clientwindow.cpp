@@ -31,9 +31,6 @@ void ClientWindow::on_play_button_clicked() {
     w->client = new MyClient(ip, port);
     connect(w->client->tcpSocket, &QTcpSocket::connected,
             this, &ClientWindow::slotConnectionEstablished);
-    ui->label_result->setText("Ожидайте.");
-    _sleep(20);
-    ui->label_result->setText("Попробуйте еще раз.");
 }
 
 void ClientWindow::slotConnectionEstablished() {
