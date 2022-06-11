@@ -9,20 +9,22 @@ class MyClient : public QObject {
     Q_OBJECT
 
 private:
-    QTcpSocket *tcpSocket;
     quint16 nextBlockSize;
+
+public:
+    QTcpSocket *tcpSocket;
     QString data;
-    bool connected;
 
 public:
     MyClient(const QString &host, int port);
     void sendToServer(QString data);
-    bool isConnected();
 
 private:
     void slotReadyRead();
 //    void slotError(QAbstractSocket::SocketError);
     void slotConnected();
+
+
 };
 
 #endif // MYCLIENT_H

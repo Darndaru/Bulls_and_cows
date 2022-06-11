@@ -1,6 +1,8 @@
 #include "clientwindow.h"
 #include "ui_clientwindow.h"
 
+#include <dos.h>
+
 ClientWindow::ClientWindow(MainWindow *parent) :
     QDialog(parent),
     ui(new Ui::ClientWindow)
@@ -13,7 +15,6 @@ ClientWindow::ClientWindow(MainWindow *parent) :
 
 ClientWindow::~ClientWindow() {
     delete ui;
-//    delete w;
 }
 
 void ClientWindow::on_play_button_clicked() {
@@ -28,9 +29,15 @@ void ClientWindow::on_play_button_clicked() {
     }
 
     w->client = new MyClient(ip, port);
-    if (w->client->isConnected())
-        this->close();
-    else
-        ui->label_result->setText(
-           "Соединение не установлено. Попробуйте еще раз.");
+    connect(w->client->tcpSocket, &QTcpSocket::connected,
+            this, &ClientWindow::slotConnectionEstablished);
+    ui->label_result->setText("Ожидайте.");
+    _sleep(20);
+    ui->label_result->setText("Попробуйте еще раз.");
+}
+
+void ClientWindow::slotConnectionEstablished() {
+    w->setEnabled(1);
+    w->showTableHeads();
+    this->close();
 }

@@ -23,6 +23,7 @@ void MyServer::slotNewConnection() {
     connect(clientSocket, SIGNAL(readyRead()), this,
             SLOT(slotReadClient()));
     sendToClient(clientSocket, "Server response: Connected!");
+    sockets.push_back(clientSocket);
 }
 
 void MyServer::slotReadClient() {

@@ -5,19 +5,18 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QMessageBox>
-
-class QTcpSocket;
-
+#include <QVector>
 
 class MyServer : QObject {
     Q_OBJECT
 
 private:
-    QTcpServer *tcpServer;
     quint16 nextBlockSize;
-    QString data;
 
-private:
+public:
+    QTcpServer *tcpServer;
+    QVector <QTcpSocket*> sockets;
+    QString data;
     void sendToClient(QTcpSocket *socket, const QString &str);
 
 public:

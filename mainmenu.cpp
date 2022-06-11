@@ -20,16 +20,16 @@ void MainMenu::on_server_button_clicked() {
     ServerWindow *sw = new ServerWindow(w);
     connect(sw, &ServerWindow::menu, this, &MainMenu::show);
     sw->setWindowModality(Qt::ApplicationModal);
-    this->close();
     sw->show();
+    this->hide();
 }
 
 void MainMenu::on_client_button_clicked() {
     ClientWindow *cw = new ClientWindow(w);
     connect(cw, &ClientWindow::menu, this, &MainMenu::show);
     cw->setWindowModality(Qt::ApplicationModal);
-    this->close();
     cw->show();
+    this->hide();
 }
 
 void MainMenu::on_quit_clicked() {

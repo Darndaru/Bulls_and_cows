@@ -2,11 +2,9 @@
 
 MyClient::MyClient(const QString &host, int port) {
     nextBlockSize = 0;
-    connected = false;
     tcpSocket = new QTcpSocket(this);
 
     tcpSocket->connectToHost(host, port);
-    connect(tcpSocket, SIGNAL(connected()), SLOT(slotConnected()));
     connect(tcpSocket, SIGNAL(readyRead()), SLOT(slotReadyRead()));
     connect(tcpSocket, SIGNAL(error(QAbstractSocket::SocketError)),
             this, SLOT(slotError(QAbstractSocket::SocketError)));
@@ -47,12 +45,3 @@ void MyClient::sendToServer(QString data) {
 
     tcpSocket->write(block);
 }
-
-void MyClient::slotConnected() {
-    connected = true;
-}
-
-bool MyClient::isConnected() {
-    return connected;
-}
-

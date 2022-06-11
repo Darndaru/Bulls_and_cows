@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <mainwindow.h>
+#include <random>
 
 namespace Ui {
 class ServerWindow;
@@ -16,12 +17,21 @@ public:
     explicit ServerWindow(MainWindow *parent = nullptr);
     ~ServerWindow();
 
+private:
+    void generatePortNumber();
+    void createServer();
+
+public slots:
+    void slotConnectionEstablished();
+
 signals:
     void menu();
 
 private:
     Ui::ServerWindow *ui;
     MainWindow *w;
+
+    int port_number;
 };
 
 #endif // SERVERWINDOW_H

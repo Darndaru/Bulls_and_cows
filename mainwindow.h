@@ -2,13 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QShortcut>
 #include <QString>
+#include <QVector>
+#include <QVBoxLayout>
+
 #include <rules.h>
 #include <myserver.h>
 #include <myclient.h>
 #include <player.h>
-#include <exception>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -28,35 +29,54 @@ struct Number {
     }
 };
 
+struct ResultOfTry {
+    QLabel *number;
+    QLabel *bulls;
+    QLabel *cows;
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+private:
+    Ui::MainWindow *ui;
+    QVector <ResultOfTry> user_results;
+    QVector <ResultOfTry> opp_results;
+
+    Number input;
+    Player* user;
+    Player* opp = nullptr;
+    bool isServer;
+
+public:
+    MyServer *server = nullptr;
+    MyClient *client = nullptr;
+
+private:
+    void getInput();
+    void clearInput();
+    void blockInput();
+    void unlockInput();
+    void showNumberToUser();
+    void repeatInput();
+    void addLabelToVector(QVBoxLayout *layout,
+                          QVector <ResultOfTry> results);
+    void isItServer();
+
+    void showTableHead(QVector <ResultOfTry>);
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    MyServer *server;
-    MyClient *client;
+    void showTableHeads();
 
 private slots:
-    void on_input_chosen_number_button_clicked();
-    void game_rules();
+    void on_inputChosenNumber_clicked();
+    void on_inputGuessedNumber_clicked();
+    void gameRules();
 
-private:
-    Ui::MainWindow *ui;
-
-
-    Number input;
-    Player* player;
-    Player* pc;
-
-    void get_input();
-    void clear_input();
-    void block_input();
-    void show_number_to_user();
-    void input_chosen_number_button_close();
-    void repeat_input();
-
-    void show_table_heads();
+public slots:
+    void slotGetOppNumber();
 };
 #endif // MAINWINDOW_H

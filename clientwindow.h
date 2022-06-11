@@ -22,6 +22,9 @@ signals:
 private slots:
     void on_play_button_clicked();
 
+public slots:
+    void slotConnectionEstablished();
+
 private:
     Ui::ClientWindow *ui;
     MainWindow *w;

@@ -22,7 +22,6 @@ private:
 public:
     Player(QString);
 
-    void set_hidden_number(QString);
     QString get_hidden_number();
     void set_guessed_number(QString);
     QString get_guessed_number();

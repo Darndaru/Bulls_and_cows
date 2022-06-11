@@ -6,69 +6,134 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Быки и коровы");
     setAttribute(Qt::WA_DeleteOnClose);
+    addLabelToVector(ui->user_player, user_results);
+    addLabelToVector(ui->opp_player, opp_results);
+}
+
+void MainWindow::addLabelToVector(QVBoxLayout *layout,
+                                  QVector <ResultOfTry> results) {
+    for (int i = 0; i < 10; i++) {
+        QHBoxLayout *l = new QHBoxLayout();
+        layout->addLayout(l);
+        QLabel *number = new QLabel();
+        QLabel *bulls = new QLabel();
+        QLabel *cows = new QLabel();
+        l->addWidget(number, 2);
+        l->addWidget(bulls, 1);
+        l->addWidget(cows, 1);
+        results.push_back({number, bulls, cows});
+    }
 }
 
 MainWindow::~MainWindow() {
-    delete player;
-    delete pc;
+    delete user;
+    delete opp;
     delete ui;
+    delete server;
+    delete client;
 }
 
 
-void MainWindow::on_input_chosen_number_button_clicked() {
-    get_input();
-    clear_input();
-    block_input();
+void MainWindow::on_inputChosenNumber_clicked() {
+    getInput();
+    clearInput();
+    blockInput();
 
     if (input.is_4_digit()) {
-//        player->set_hidden_number(input_number);
-        show_number_to_user();
-        input_chosen_number_button_close();
+        showNumberToUser();
+        user = new Player(input.number);
+        ui->inputChosenNumber->hide();
+        isItServer();
+        if (isServer)
+            unlockInput();
     }
     else
-        repeat_input();
+        repeatInput();
 }
 
-void MainWindow::get_input() {
-     input = {ui->input->text()};
+void MainWindow::on_inputGuessedNumber_clicked() {
+    getInput();
+    clearInput();
+    blockInput();
+
+    if (input.is_4_digit()) {
+        if (isServer)
+            server->sendToClient(server->sockets[0], input.number);
+        else
+            client->sendToServer(input.number);
+    }
+    else
+        repeatInput();
 }
 
-void MainWindow::clear_input() {
+void MainWindow::isItServer() {
+    if (server == nullptr) {
+        isServer = false;
+        connect(client->tcpSocket, &QTcpSocket::readyRead,
+                this, &MainWindow::slotGetOppNumber);
+    }
+    else {
+        isServer = true;
+        connect(server->sockets[0], &QTcpSocket::readyRead,
+            this, &MainWindow::slotGetOppNumber);
+    }
+}
+
+void MainWindow::getInput() {
+    input = {ui->input->text()};
+}
+
+void MainWindow::clearInput() {
     ui->input->clear();
 }
 
-void MainWindow::block_input() {
+void MainWindow::blockInput() {
     ui->input->setReadOnly(1);
 }
 
-void MainWindow::show_number_to_user() {
+void MainWindow::unlockInput() {
+    ui->input->setReadOnly(0);
+}
+
+void MainWindow::showNumberToUser() {
     QString setting_text =
             QString("Ваше число: ") + input.number;
     ui->pointing_for_user->setText(setting_text);
     ui->user_number->setText((input.number));
 }
 
-void MainWindow::input_chosen_number_button_close() {
-    ui->input_chosen_number_button->close();
-}
-
-void MainWindow::repeat_input() {
+void MainWindow::repeatInput() {
     ui->pointing_for_user->setText("Введите число из 4 цифр");
     ui->input->setReadOnly(0);
 }
 
-void MainWindow::show_table_heads() {
-    ui->label_number_0->setText("Введенное число");
-    ui->label_bulls_0->setText("Быки");
-    ui->label_cows_0->setText("Коровы");
-    ui->label_number_1->setText("Введенное число");
-    ui->label_bulls_1->setText("Быки");
-    ui->label_cows_1->setText("Коровы");
+void MainWindow::slotGetOppNumber() {
+    if (!opp) {
+        if (isServer)
+            opp = new Player(server->data);
+        else
+            opp = new Player(client->data);
+    }
+//    if (isServer) {
+
+//    }
 }
 
-void MainWindow::game_rules() {
-    Rules r;
-    r.show();
+void MainWindow::showTableHeads() {
+    showTableHead(user_results);
+    showTableHead(opp_results);
+}
+
+void MainWindow::showTableHead(QVector <ResultOfTry> results) {
+    results[0].number->setText("Введенное число");
+    results[0].bulls->setText("Быки");
+    results[0].cows->setText("Коровы");
+}
+
+void MainWindow::gameRules() {
+//    Rules r;
+//    r.show();
 }
 

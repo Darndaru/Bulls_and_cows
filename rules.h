@@ -1,22 +1,22 @@
-#ifndef RULES_H
-#define RULES_H
+//#ifndef RULES_H
+//#define RULES_H
 
-#include <QDialog>
+//#include <QDialog>
 
-namespace Ui {
-class Rules;
-}
+//namespace Ui {
+//class Rules;
+//}
 
-class Rules : public QDialog
-{
-    Q_OBJECT
+//class Rules : public QDialog
+//{
+//    Q_OBJECT
 
-public:
-    explicit Rules(QWidget *parent = nullptr);
-    ~Rules();
+//public:
+//    explicit Rules(QWidget *parent = nullptr);
+//    ~Rules();
 
-private:
-    Ui::Rules *ui;
-};
+//private:
+//    Ui::Rules *ui;
+//};
 
-#endif // RULES_H
+//#endif // RULES_H

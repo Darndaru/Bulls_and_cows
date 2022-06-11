@@ -4,10 +4,6 @@ Player::Player(QString number) {
     hidden_number = number;
 }
 
-void Player::set_hidden_number(QString number) {
-    hidden_number = number;
-}
-
 QString Player::get_hidden_number() {
     return hidden_number;
 }
