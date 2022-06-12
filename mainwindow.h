@@ -10,6 +10,7 @@
 #include <myserver.h>
 #include <myclient.h>
 #include <player.h>
+#include <result.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -51,6 +52,8 @@ private:
     int u_num_of_attempts;
     int o_num_of_attempts;
 
+    Result *r;
+
 public:
     MyServer *server = nullptr;
     MyClient *client = nullptr;
@@ -69,6 +72,7 @@ private:
     void showUserResults();
     void showOppResults();
     void showResults(QString, Player*);
+    void showGameResult();
 
     bool draw_condition();
 

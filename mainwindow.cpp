@@ -7,7 +7,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowTitle("Быки и коровы");
-    num_of_attempts = 0;
     setAttribute(Qt::WA_DeleteOnClose);
 }
 
@@ -44,12 +43,15 @@ void MainWindow::on_inputChosenNumber_clicked() {
             user->set_guessed_number(input.number);
             showUserResults();
             u_num_of_attempts++;
-        }
-        if (user->get_bulls() == 4) {
-            // WIN
-        }
-        if (draw_condition()) {
-            // DRAW
+
+            if (user->get_bulls() == 4) {
+                r = new Result(1);
+                showGameResult();
+            }
+            if (draw_condition()) {
+                r = new Result(0);
+                showGameResult();
+            }
         }
     }
     else
@@ -83,11 +85,13 @@ void MainWindow::slotGetOppNumber() {
         }
         showOppResults();
         if (opp->get_bulls() == 4) {
-            // LOSE
+            r = new Result(-1);
+            showGameResult();
         }
         o_num_of_attempts++;
         if (draw_condition()) {
-            // DRAW
+            r = new Result(0);
+            showGameResult();
         }
     }
     unlockInput();
@@ -97,6 +101,11 @@ bool MainWindow::draw_condition() {
     if (u_num_of_attempts >= 18 && o_num_of_attempts >=18)
         return true;
     return false;
+}
+
+void MainWindow::showGameResult() {
+    r->setWindowModality(Qt::ApplicationModal);
+    r->show();
 }
 
 

@@ -16,6 +16,7 @@ SOURCES += \
     myclient.cpp \
     myserver.cpp \
     player.cpp \
+    result.cpp \
     rules.cpp \
     serverwindow.cpp
 
@@ -26,6 +27,7 @@ HEADERS += \
     myclient.h \
     myserver.h \
     player.h \
+    result.h \
     rules.h \
     serverwindow.h
 
@@ -33,6 +35,7 @@ FORMS += \
     clientwindow.ui \
     mainmenu.ui \
     mainwindow.ui \
+    result.ui \
     rules.ui \
     serverwindow.ui
 
