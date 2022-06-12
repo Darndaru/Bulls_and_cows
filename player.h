@@ -8,11 +8,10 @@ class Player
 {
 private:
     const int num_of_digits = 4;
-    QString hidden_number;
-    QString opponent_number;
+    QString opp_number = "";
     QString guessed_number;
-    int bulls_for_guessed_number;
-    int cows_for_guessed_number;
+    int bulls;
+    int cows;
 
     QVector <QChar> digits_of_guessed_number;
 
@@ -21,13 +20,13 @@ private:
 
 public:
     Player(QString);
-
-    QString get_hidden_number();
     void set_guessed_number(QString);
     QString get_guessed_number();
+    void set_opp_number(QString);
 
     int get_bulls();
     int get_cows();
+    bool isOppNumberInput();
 };
 
 #endif // PLAYER_H

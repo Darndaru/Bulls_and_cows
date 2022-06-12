@@ -26,8 +26,10 @@ void ServerWindow::generatePortNumber() {
 
 void ServerWindow::createServer() {
     w->server = new MyServer(port_number);
-    connect(w->server->tcpServer, &QTcpServer::newConnection,
+    connect(w->server, &MyServer::connected,
             this, &ServerWindow::slotConnectionEstablished);
+    connect(w->server, &MyServer::connected,
+            w, &MainWindow::slotConnectionEstablished);
 }
 
 ServerWindow::~ServerWindow() {
@@ -35,7 +37,5 @@ ServerWindow::~ServerWindow() {
 }
 
 void ServerWindow::slotConnectionEstablished() {
-    w->setEnabled(1);
-    w->showTableHeads();
     this->close();
 }

@@ -10,16 +10,20 @@ class MyClient : public QObject {
 
 private:
     quint16 nextBlockSize;
+    QTcpSocket *tcpSocket;
 
 public:
-    QTcpSocket *tcpSocket;
     QString data;
 
 public:
     MyClient(const QString &host, int port);
     void sendToServer(QString data);
 
-private:
+signals:
+    void read();
+    void connected();
+
+private slots:
     void slotReadyRead();
 //    void slotError(QAbstractSocket::SocketError);
     void slotConnected();

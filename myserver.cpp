@@ -22,8 +22,9 @@ void MyServer::slotNewConnection() {
             SLOT(deleteLater()));
     connect(clientSocket, SIGNAL(readyRead()), this,
             SLOT(slotReadClient()));
-    sendToClient(clientSocket, "Server response: Connected!");
+//    sendToClient(clientSocket, "Server response: Connected!");
     sockets.push_back(clientSocket);
+    emit connected();
 }
 
 void MyServer::slotReadClient() {
@@ -42,15 +43,16 @@ void MyServer::slotReadClient() {
         QString str;
         in >> str;
 
-        QString strMessage = str;
-        data.append(strMessage);
+        data.append(str);
 
         nextBlockSize = 0;
     }
+    emit read();
 }
 
 void MyServer::sendToClient(QTcpSocket *socket, const QString &str) {
     QByteArray block;
+    block.clear();
     QDataStream out(&block, QIODevice::WriteOnly);
     out.setVersion((QDataStream::Qt_5_3));
     out << quint16(0) << str;

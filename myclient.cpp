@@ -5,19 +5,23 @@ MyClient::MyClient(const QString &host, int port) {
     tcpSocket = new QTcpSocket(this);
 
     tcpSocket->connectToHost(host, port);
+    connect(tcpSocket, SIGNAL(connected()), SLOT(slotConnected()));
     connect(tcpSocket, SIGNAL(readyRead()), SLOT(slotReadyRead()));
-    connect(tcpSocket, SIGNAL(error(QAbstractSocket::SocketError)),
-            this, SLOT(slotError(QAbstractSocket::SocketError)));
+//    connect(tcpSocket, SIGNAL(error(QAbstractSocket::SocketError)),
+//            this, SLOT(slotError(QAbstractSocket::SocketError)));
 }
 
 void MyClient::slotReadyRead() {
     QDataStream in(tcpSocket);
+    qDebug() << "Client is reading";
     in.setVersion(QDataStream::Qt_5_3);
     for(;;) {
-        if (tcpSocket->bytesAvailable() < sizeof(quint16))
-            break;
+        if (!nextBlockSize) {
+            if (tcpSocket->bytesAvailable() < sizeof(quint16))
+                break;
 
-        in >> nextBlockSize;
+            in >> nextBlockSize;
+        }
 
         if (tcpSocket->bytesAvailable() < nextBlockSize)
             break;
@@ -28,6 +32,12 @@ void MyClient::slotReadyRead() {
         data.append(str);
         nextBlockSize = 0;
     }
+    qDebug() << "Client has read";
+    emit read();
+}
+
+void MyClient::slotConnected() {
+    emit connected();
 }
 
 //void MyClient::slotError(QAbstractSocket::SocketError err) {
@@ -36,12 +46,13 @@ void MyClient::slotReadyRead() {
 
 void MyClient::sendToServer(QString data) {
     QByteArray block;
+    block.clear();
     QDataStream out(&block, QIODevice::WriteOnly);
-    out.setVersion(QDataStream::Qt_5_3);
+    out.setVersion(QDataStream::Qt_5_2);
     out << quint16(0) << data;
 
     out.device()->seek(0);
-    out << quint16(block.size()) - sizeof(quint16);
+    out << quint16(block.size() - sizeof(quint16));
 
     tcpSocket->write(block);
 }

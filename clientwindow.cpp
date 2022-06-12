@@ -1,8 +1,6 @@
 #include "clientwindow.h"
 #include "ui_clientwindow.h"
 
-#include <dos.h>
-
 ClientWindow::ClientWindow(MainWindow *parent) :
     QDialog(parent),
     ui(new Ui::ClientWindow)
@@ -29,12 +27,12 @@ void ClientWindow::on_play_button_clicked() {
     }
 
     w->client = new MyClient(ip, port);
-    connect(w->client->tcpSocket, &QTcpSocket::connected,
+    connect(w->client, &MyClient::connected,
             this, &ClientWindow::slotConnectionEstablished);
+    connect(w->client, &MyClient::connected,
+            w, &MainWindow::slotConnectionEstablished);
 }
 
 void ClientWindow::slotConnectionEstablished() {
-    w->setEnabled(1);
-    w->showTableHeads();
     this->close();
 }

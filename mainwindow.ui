@@ -111,9 +111,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
-      <width>441</width>
-      <height>453</height>
+      <y>102</y>
+      <width>421</width>
+      <height>411</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="user_player">
@@ -143,10 +143,10 @@
    <widget class="QWidget" name="verticalLayoutWidget_4">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>60</y>
-      <width>441</width>
-      <height>453</height>
+      <x>500</x>
+      <y>102</y>
+      <width>421</width>
+      <height>411</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="opp_player">
@@ -155,31 +155,90 @@
      </property>
     </layout>
    </widget>
-   <widget class="QPushButton" name="inputGuessedNumber">
+   <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>10</y>
-      <width>80</width>
-      <height>31</height>
+      <x>10</x>
+      <y>60</y>
+      <width>421</width>
+      <height>41</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Угадать</string>
-    </property>
+    <layout class="QHBoxLayout" name="user_head" stretch="3,1,1">
+     <item>
+      <widget class="QLabel" name="u_number">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="u_bulls">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="u_cows">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <zorder>inputGuessedNumber</zorder>
-   <zorder>input</zorder>
-   <zorder>inputChosenNumber</zorder>
-   <zorder>pointing_for_user</zorder>
-   <zorder>verticalLayoutWidget_3</zorder>
-   <zorder>user_number</zorder>
-   <zorder>verticalLayoutWidget_4</zorder>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>60</y>
+      <width>421</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="opp_head" stretch="3,1,1">
+     <item>
+      <widget class="QLabel" name="o_number">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="o_bulls">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="o_cows">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

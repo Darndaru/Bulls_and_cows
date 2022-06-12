@@ -45,9 +45,11 @@ private:
     QVector <ResultOfTry> opp_results;
 
     Number input;
-    Player* user;
+    Player* user = nullptr;
     Player* opp = nullptr;
     bool isServer;
+    int u_num_of_attempts;
+    int o_num_of_attempts;
 
 public:
     MyServer *server = nullptr;
@@ -58,13 +60,17 @@ private:
     void clearInput();
     void blockInput();
     void unlockInput();
-    void showNumberToUser();
     void repeatInput();
-    void addLabelToVector(QVBoxLayout *layout,
-                          QVector <ResultOfTry> results);
-    void isItServer();
 
-    void showTableHead(QVector <ResultOfTry>);
+    void isItServer();
+    void sendNumber(QString);
+
+    void showNumberToUser();
+    void showUserResults();
+    void showOppResults();
+    void showResults(QString, Player*);
+
+    bool draw_condition();
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -73,10 +79,10 @@ public:
 
 private slots:
     void on_inputChosenNumber_clicked();
-    void on_inputGuessedNumber_clicked();
     void gameRules();
 
 public slots:
     void slotGetOppNumber();
+    void slotConnectionEstablished();
 };
 #endif // MAINWINDOW_H
