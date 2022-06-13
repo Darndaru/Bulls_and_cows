@@ -45,11 +45,11 @@ void MainWindow::on_inputChosenNumber_clicked() {
             u_num_of_attempts++;
 
             if (user->get_bulls() == 4) {
-                r = new Result(1);
+                r = new Result(1, this);
                 showGameResult();
             }
             if (draw_condition()) {
-                r = new Result(0);
+                r = new Result(0, this);
                 showGameResult();
             }
         }
@@ -62,35 +62,31 @@ void MainWindow::slotGetOppNumber() {
     if (!user) {
         if (isServer) {
             user = new Player(server->data);
-            qDebug() << "Server got " << server->data;
             server->data = "";
         }
         else {
             user = new Player(client->data);
-            qDebug() << "Client got " << client->data;
             client->data = "";
         }
         o_num_of_attempts = 0;
     }
     else {
         if (isServer) {
-            qDebug() << "Server got " << server->data;
             opp->set_guessed_number(server->data);
             server->data = "";
         }
         else {
-            qDebug() << "Client got " << client->data;
             opp->set_guessed_number(client->data);
             client->data = "";
         }
         showOppResults();
         if (opp->get_bulls() == 4) {
-            r = new Result(-1);
+            r = new Result(-1, this);
             showGameResult();
         }
         o_num_of_attempts++;
         if (draw_condition()) {
-            r = new Result(0);
+            r = new Result(0, this);
             showGameResult();
         }
     }
@@ -104,6 +100,7 @@ bool MainWindow::draw_condition() {
 }
 
 void MainWindow::showGameResult() {
+    setEnabled(0);
     r->setWindowModality(Qt::ApplicationModal);
     r->show();
 }

@@ -2,8 +2,10 @@
 #define SERVERWINDOW_H
 
 #include <QDialog>
-#include <mainwindow.h>
 #include <random>
+#include "mainwindow.h"
+
+class MainWindow;
 
 namespace Ui {
 class ServerWindow;

@@ -16,6 +16,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+class Result;
+
 struct Number {
     QString number;
 

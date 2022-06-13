@@ -1,11 +1,14 @@
 #include "result.h"
 #include "ui_result.h"
 
-Result::Result(int result, QWidget *parent) :
+Result::Result(int result,
+               MainWindow *w,
+               QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Result)
 {
     ui->setupUi(this);
+    this->w = w;
     switch (result) {
     case -1: {
         setWindowTitle("Проигрыш");
@@ -31,20 +34,17 @@ Result::Result(int result, QWidget *parent) :
         break;
     }
     }
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
-Result::~Result()
-{
+Result::~Result() {
+    w->close();
+    delete w;
     delete ui;
 }
 
 void Result::on_quit_clicked() {
-
+    w->close();
+    delete w;
+    this->close();
 }
-
-
-void Result::on_startOver_clicked()
-{
-
-}
-

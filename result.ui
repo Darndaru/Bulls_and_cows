@@ -7,12 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>200</height>
    </rect>
   </property>
   <property name="font">
    <font>
-    <family>Consolas</family>
     <pointsize>16</pointsize>
    </font>
   </property>
@@ -38,20 +37,13 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>9</x>
-     <y>79</y>
+     <x>10</x>
+     <y>90</y>
      <width>381</width>
-     <height>211</height>
+     <height>101</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QPushButton" name="startOver">
-      <property name="text">
-       <string>Начать заново</string>
-      </property>
-     </widget>
-    </item>
     <item>
      <widget class="QPushButton" name="quit">
       <property name="text">

@@ -12,6 +12,7 @@
   </property>
   <property name="font">
    <font>
+    <family>Consolas</family>
     <pointsize>12</pointsize>
    </font>
   </property>
@@ -29,6 +30,7 @@
    </property>
    <property name="font">
     <font>
+     <family>Consolas</family>
      <pointsize>20</pointsize>
     </font>
    </property>
