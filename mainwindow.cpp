@@ -53,6 +53,8 @@ void MainWindow::on_inputChosenNumber_clicked() {
                 showGameResult();
             }
         }
+        ui->pointing_for_user->
+                setText("Ожидайте. Очередь противника.");
     }
     else
         repeatInput();
@@ -89,6 +91,8 @@ void MainWindow::slotGetOppNumber() {
             r = new Result(0, this);
             showGameResult();
         }
+        ui->pointing_for_user->
+                setText("Ваша очередь. Угадайте число противника.");
     }
     unlockInput();
 }
