@@ -4,19 +4,33 @@
 #include <QDialog>
 #include "mainwindow.h"
 
-class MainWindow;
-
 namespace Ui {
 class ClientWindow;
 }
+
+class MainWindow;
 
 class ClientWindow : public QDialog
 {
     Q_OBJECT
 
+private:
+    Ui::ClientWindow *ui;
+    MainWindow *w;
+
+    QString ip;
+    int port;
+
+    bool isPortNumberCorrect = false;
+
 public:
     explicit ClientWindow(MainWindow *parent = nullptr);
     ~ClientWindow();
+
+private:
+    void getIpAddress();
+    void getPortNumber();
+    void createClient();
 
 signals:
     void menu();
@@ -26,13 +40,6 @@ private slots:
 
 public slots:
     void slotConnectionEstablished();
-
-private:
-    Ui::ClientWindow *ui;
-    MainWindow *w;
-
-    QString ip;
-    int port;
 };
 
 #endif // CLIENTWINDOW_H

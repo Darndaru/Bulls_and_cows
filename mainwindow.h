@@ -17,7 +17,6 @@ namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
 class Result;
-
 struct Number {
     QString number;
 
@@ -32,11 +31,7 @@ struct Number {
     }
 };
 
-struct ResultOfTry {
-    QLabel *number;
-    QLabel *bulls;
-    QLabel *cows;
-};
+struct ResultOfTry;
 
 class MainWindow : public QMainWindow
 {
@@ -76,7 +71,8 @@ private:
     void showResults(QString, Player*);
     void showGameResult();
 
-    bool draw_condition();
+    void checkWin(Player *player);
+    void checkDraw();
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -91,4 +87,12 @@ public slots:
     void slotGetOppNumber();
     void slotConnectionEstablished();
 };
+
+
+struct ResultOfTry {
+    QLabel *number;
+    QLabel *bulls;
+    QLabel *cows;
+};
+
 #endif // MAINWINDOW_H

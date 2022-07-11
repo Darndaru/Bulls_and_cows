@@ -4,6 +4,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , u_num_of_attempts(0)
 {
     ui->setupUi(this);
     this->setWindowTitle("Быки и коровы");
@@ -37,21 +38,14 @@ void MainWindow::on_inputChosenNumber_clicked() {
         if (!opp) {
             showNumberToUser();
             opp = new Player(input.number);
-            u_num_of_attempts = 0;
         }
         else {
             user->set_guessed_number(input.number);
             showUserResults();
             u_num_of_attempts++;
 
-            if (user->get_bulls() == 4) {
-                r = new Result(1, this);
-                showGameResult();
-            }
-            if (draw_condition()) {
-                r = new Result(0, this);
-                showGameResult();
-            }
+            checkWin(user);
+            checkDraw();
         }
         ui->pointing_for_user->
                 setText("Ожидайте. Очередь противника.");
@@ -61,46 +55,48 @@ void MainWindow::on_inputChosenNumber_clicked() {
 }
 
 void MainWindow::slotGetOppNumber() {
-    if (!user) {
-        if (isServer) {
+    if (isServer) {
+        if (!user)
             user = new Player(server->data);
-            server->data = "";
-        }
-        else {
-            user = new Player(client->data);
-            client->data = "";
-        }
-        o_num_of_attempts = 0;
+        else
+            opp->set_guessed_number(server->data);
+        server->data = "";
     }
     else {
-        if (isServer) {
-            opp->set_guessed_number(server->data);
-            server->data = "";
-        }
-        else {
+        if (!user)
+            user = new Player(client->data);
+        else
             opp->set_guessed_number(client->data);
-            client->data = "";
-        }
-        showOppResults();
-        if (opp->get_bulls() == 4) {
-            r = new Result(-1, this);
-            showGameResult();
-        }
-        o_num_of_attempts++;
-        if (draw_condition()) {
-            r = new Result(0, this);
-            showGameResult();
-        }
-        ui->pointing_for_user->
-                setText("Ваша очередь. Угадайте число противника.");
+        client->data = "";
     }
+
+    showOppResults();
+    o_num_of_attempts++;
+
+    checkWin(opp);
+    checkDraw();
+
+    ui->pointing_for_user->
+        setText("Ваша очередь. Угадайте число противника.");
+
     unlockInput();
 }
 
-bool MainWindow::draw_condition() {
-    if (u_num_of_attempts >= 18 && o_num_of_attempts >=18)
-        return true;
-    return false;
+void MainWindow::checkWin(Player *player) {
+    if (player->get_bulls() == 4) {
+        if (player == user)
+            r = new Result(1, this);
+        else
+            r = new Result(-1, this);
+        showGameResult();
+    }
+}
+
+void MainWindow::checkDraw() {
+    if (u_num_of_attempts >= 18 && o_num_of_attempts >=18) {
+        r = new Result(0, this);
+        showGameResult();
+    }
 }
 
 void MainWindow::showGameResult() {

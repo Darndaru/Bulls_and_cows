@@ -25,7 +25,6 @@ signals:
 
 private slots:
     void slotReadyRead();
-//    void slotError(QAbstractSocket::SocketError);
     void slotConnected();
 
 

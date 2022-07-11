@@ -3,10 +3,10 @@
 
 MainMenu::MainMenu(MainWindow *parent) :
     QDialog(parent),
-    ui(new Ui::MainMenu)
+    ui(new Ui::MainMenu),
+    w(parent)
 {
     ui->setupUi(this);
-    w = parent;
     this->setWindowTitle("Меню");
     setAttribute(Qt::WA_DeleteOnClose);
 }

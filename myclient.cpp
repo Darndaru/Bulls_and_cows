@@ -7,8 +7,6 @@ MyClient::MyClient(const QString &host, int port) {
     tcpSocket->connectToHost(host, port);
     connect(tcpSocket, SIGNAL(connected()), SLOT(slotConnected()));
     connect(tcpSocket, SIGNAL(readyRead()), SLOT(slotReadyRead()));
-//    connect(tcpSocket, SIGNAL(error(QAbstractSocket::SocketError)),
-//            this, SLOT(slotError(QAbstractSocket::SocketError)));
 }
 
 void MyClient::slotReadyRead() {
@@ -39,10 +37,6 @@ void MyClient::slotReadyRead() {
 void MyClient::slotConnected() {
     emit connected();
 }
-
-//void MyClient::slotError(QAbstractSocket::SocketError err) {
-
-//}
 
 void MyClient::sendToServer(QString data) {
     QByteArray block;

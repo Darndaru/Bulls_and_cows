@@ -16,7 +16,6 @@ class MainMenu : public QDialog
 
 private:
     Ui::MainMenu *ui;
-
     MainWindow *w;
 
 public:
