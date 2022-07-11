@@ -76,7 +76,8 @@ private:
     void showResults(QString, Player*);
     void showGameResult();
 
-    bool draw_condition();
+    void checkWin(Player *player);
+    void checkDraw();
 
 public:
     MainWindow(QWidget *parent = nullptr);

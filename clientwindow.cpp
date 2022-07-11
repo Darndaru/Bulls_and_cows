@@ -17,11 +17,9 @@ ClientWindow::~ClientWindow() {
 
 void ClientWindow::on_play_button_clicked() {
     ip = ui->ip_address->text();
-    QString port_text = ui->port_number->text();
+    getPortNumber();
 
-    bool isConverted;
-    port = port_text.toInt(&isConverted);
-    if (!isConverted) {
+    if (!isPortNumberCorrect) {
         ui->label_result->setText("Номер порта некорректный.");
         return;
     }
@@ -31,6 +29,11 @@ void ClientWindow::on_play_button_clicked() {
             this, &ClientWindow::slotConnectionEstablished);
     connect(w->client, &MyClient::connected,
             w, &MainWindow::slotConnectionEstablished);
+}
+
+void ClientWindow::getPortNumber() {
+    QString port_text = ui->port_number->text();
+    port = port_text.toInt(&isPortNumberCorrect);
 }
 
 void ClientWindow::slotConnectionEstablished() {
