@@ -11,7 +11,7 @@ bulls: 1 (5 is on the same places in the numbers) \
 cows: 1 (7 is in the both numbers, but it has different places)
 ```
 
-#### How to play
+## How to play
 Firstly you should convince that you and you friend are in the same local network. Launch the game. \
 Do you see start menu? Then one of you should create the game, another player should join it. Enter your friend's IP-address and port number, which your friend should tell you. \
 Now you can play! Is nothing going on? Check is everything right and try to connect again.
