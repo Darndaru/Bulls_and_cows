@@ -4,11 +4,11 @@
 #include <QDialog>
 #include "mainwindow.h"
 
+class MainWindow;
+
 namespace Ui {
 class ClientWindow;
 }
-
-class MainWindow;
 
 class ClientWindow : public QDialog
 {
@@ -23,14 +23,14 @@ private:
 
     bool isPortNumberCorrect = false;
 
-public:
-    explicit ClientWindow(MainWindow *parent = nullptr);
-    ~ClientWindow();
-
 private:
     void getIpAddress();
     void getPortNumber();
     void createClient();
+
+public:
+    explicit ClientWindow(MainWindow *parent = nullptr);
+    ~ClientWindow();
 
 signals:
     void menu();

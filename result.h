@@ -20,15 +20,15 @@ private:
     MainWindow *w;
 
 
+private:
+    void showResult(QString title,
+                    QString text);
+
 public:
     explicit Result(int result,
                     MainWindow *w,
                     QWidget *parent = nullptr);
     ~Result();
-
-private:
-    void showResult(QString title,
-                    QString text);
 
 
 private slots:

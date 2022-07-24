@@ -15,25 +15,26 @@ class ServerWindow : public QDialog
 {
     Q_OBJECT
 
-public:
-    explicit ServerWindow(MainWindow *parent = nullptr);
-    ~ServerWindow();
-
-private:
-    void generatePortNumber();
-    void createServer();
-
-public slots:
-    void slotConnectionEstablished();
-
-signals:
-    void menu();
-
 private:
     Ui::ServerWindow *ui;
     MainWindow *w;
 
     int port_number;
+
+
+private:
+    void generatePortNumber();
+    void createServer();
+
+public:
+    explicit ServerWindow(MainWindow *parent = nullptr);
+    ~ServerWindow();
+
+signals:
+    void menu();
+
+public slots:
+    void slotConnectionEstablished();
 };
 
 #endif // SERVERWINDOW_H

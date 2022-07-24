@@ -120,7 +120,7 @@ void MainWindow::isItServer() {
 }
 
 void MainWindow::getInput() {
-    input = {ui->input->text()};
+    *input = {ui->input->text()};
 }
 
 void MainWindow::clearInput() {
@@ -139,9 +139,9 @@ void MainWindow::unlockInput() {
 
 void MainWindow::showNumberToUser() {
     QString setting_text =
-            QString("Ваше число: ") + input.number;
+            QString("Ваше число: ") + input->number;
     ui->pointing_for_user->setText(setting_text);
-    ui->user_number->setText((input.number));
+    ui->user_number->setText((input->number));
 }
 
 void MainWindow::repeatInput() {

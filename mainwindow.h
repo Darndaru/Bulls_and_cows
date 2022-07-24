@@ -12,26 +12,14 @@
 #include <player.h>
 #include <result.h>
 
+class Result;
+struct Number;
+struct ResultOfTry;
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
-
-class Result;
-struct Number {
-    QString number;
-
-    bool is_4_digit() {
-        if (number.length() != 4)
-            return false;
-
-        for (QChar symbol : number)
-            if (!symbol.isDigit())
-                return false;
-        return true;
-    }
-};
-
-struct ResultOfTry;
 
 class MainWindow : public QMainWindow
 {
@@ -42,7 +30,7 @@ private:
     QVector <ResultOfTry> user_results;
     QVector <ResultOfTry> opp_results;
 
-    Number input;
+    Number *input;
     Player* user = nullptr;
     Player* opp = nullptr;
     bool isServer;
@@ -74,6 +62,7 @@ private:
     void checkWin(Player *player);
     void checkDraw();
 
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -88,6 +77,19 @@ public slots:
     void slotConnectionEstablished();
 };
 
+struct Number {
+    QString number;
+
+    bool is_4_digit() {
+        if (number.length() != 4)
+            return false;
+
+        for (QChar symbol : number)
+            if (!symbol.isDigit())
+                return false;
+        return true;
+    }
+};
 
 struct ResultOfTry {
     QLabel *number;

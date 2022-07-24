@@ -32,7 +32,6 @@ public:
 private:
     void set_digits_of_guessed_number();
     bool same_symbols_for_indexes(int, int);
-
 };
 
 #endif // PLAYER_H

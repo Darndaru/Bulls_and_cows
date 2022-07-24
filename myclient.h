@@ -26,8 +26,6 @@ signals:
 private slots:
     void slotReadyRead();
     void slotConnected();
-
-
 };
 
 #endif // MYCLIENT_H

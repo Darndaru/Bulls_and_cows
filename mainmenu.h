@@ -18,6 +18,10 @@ private:
     Ui::MainMenu *ui;
     MainWindow *w;
 
+private:
+    template <typename T>
+    void showConnectionWindow(T window);
+
 public:
     explicit MainMenu(MainWindow *parent = nullptr);
     ~MainMenu();

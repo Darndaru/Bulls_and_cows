@@ -19,16 +19,19 @@ MainMenu::~MainMenu() {
 void MainMenu::on_server_button_clicked() {
     ServerWindow *sw = new ServerWindow(w);
     connect(sw, &ServerWindow::menu, this, &MainMenu::show);
-    sw->setWindowModality(Qt::ApplicationModal);
-    sw->show();
-    this->hide();
+    showConnectionWindow(sw);
 }
 
 void MainMenu::on_client_button_clicked() {
     ClientWindow *cw = new ClientWindow(w);
     connect(cw, &ClientWindow::menu, this, &MainMenu::show);
-    cw->setWindowModality(Qt::ApplicationModal);
-    cw->show();
+    showConnectionWindow(cw);
+}
+
+template <typename T>
+void MainMenu::showConnectionWindow(T window) {
+    window->setWindowModality(Qt::ApplicationModal);
+    window->show();
     this->hide();
 }
 

@@ -44,11 +44,6 @@ void ClientWindow::createClient() {
             w, &MainWindow::slotConnectionEstablished);
 }
 
-void ClientWindow::getPortNumber() {
-    QString port_text = ui->port_number->text();
-    port = port_text.toInt(&isPortNumberCorrect);
-}
-
 void ClientWindow::slotConnectionEstablished() {
     this->close();
 }
